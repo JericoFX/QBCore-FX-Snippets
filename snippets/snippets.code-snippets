@@ -111,7 +111,7 @@
 	},
 	"CLIENT/ Spawn a vehicle from Server side": {
 		"prefix": "SpawnVehicle",
-		"body": ["QBCore.Functions.TriggerCallback('QBCore:Server:SpawnVehicle', function(netId)", "     local veh = NetToVeh(netId)", "     TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(veh)", "end, ${1:VehicleModel}, ${2:Coordinates}, ${3:Warp})"],
+		"body": ["QBCore.Functions.TriggerCallback('QBCore:Server:SpawnVehicle', function(netId)", "     local veh = NetToVeh(netId)", "     TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(veh))", "end, ${1:VehicleModel}, ${2:Coordinates}, ${3:Warp})"],
 		"description": "CLIENT/ Spawn a vehicle from Server side"
 	},
 	"CLIENT/Delete a vehicle": {
