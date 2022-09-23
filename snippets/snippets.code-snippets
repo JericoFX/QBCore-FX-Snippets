@@ -380,17 +380,17 @@
 		"description": "CLIENT/ Delete a PolyZone"
 	},
 	"CLIENT/ Set Player Appearance": {
-		"prefix": ["setPlayerAppearance", "spa", "APSSet"],
+		"prefix": ["setPlayerAppearance", "APSSet"],
 		"body": ["exports[\"fivem-appearance\"]:setPlayerAppearance(--[[/appareance/]])"],
 		"description": "CLIENT/ Set Player Appearance"
 	},
 	"CLIENT/ Set Player Model": {
-		"prefix": ["setPlayerModel", "SPM", "APSModel"],
+		"prefix": ["setPlayerModel", "APSModel"],
 		"body": ["exports[\"fivem-appearance\"]:setPlayerModel(--[[mp_m_freemode_01]])"],
 		"description": "CLIENT/ Set Player Model"
 	},
 	"CLIENT/ Set Player Tattoos": {
-		"prefix": ["setPedTattoos", "spt", "APSTattoos"],
+		"prefix": ["setPedTattoos", "APSTattoos"],
 		"body": ["exports[\"fivem-appearance\"]:setPedTattoos(--[[ped,{}]])"],
 		"description": "CLIENT/ Set Player Tattoos"
 	},
