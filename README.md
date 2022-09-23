@@ -13,7 +13,7 @@ tc or TriggerCallback and more
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+First Release
 
 ### 1.0.0
 
