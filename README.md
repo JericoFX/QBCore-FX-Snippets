@@ -1,10 +1,10 @@
 # QBCore FX Snippets README
 
-This extension has some usefull snippets to use with vscode and qbcore, from simples function to complex solutions like polyzones creator, qb-menu, KeyMapping and more.
+This extension has some useful snippets to use with vscode and qbcore, from simples function to complex solutions like polyzone creator, qb-menu, KeyMapping and more.
 
 ## Features
 
-As above descrived, you can find some ussefull commands, like
+As above described, you can find some useful commands, like
 
 ```lua
 GC or GetObject to get the QBCore object
