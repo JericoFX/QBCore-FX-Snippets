@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
-## [1.0.0] - 2022-09-22
+## [1.5.0] - 2022-09-23
 
-- Initial release
+- Added some Fivem-appearance snippets.
+
+- Added PolyZones missing snippets.

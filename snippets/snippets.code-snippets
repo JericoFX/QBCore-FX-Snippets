@@ -61,7 +61,7 @@
 	},
 	"CLIENT/Send a Nofitication from the client": {
 		"prefix": "Notify",
-		"body": ["--Types: success,primary,error,police,ambulance", "QBCore.Functions.Notify(${1:Text}, ${2:textType}, ${3:length})"],
+		"body": ["QBCore.Functions.Notify(${1:Text}, \"primary\", ${3:length})"],
 		"description": "CLIENT/Send a Nofitication from the client"
 	},
 	"CLIENT/This print on the server console the table or value you pass (you need to open svgui)": {
@@ -76,7 +76,7 @@
 	},
 	"CLIENT/ Box Zone, Create a PolyZone Box": {
 		"prefix": ["Boxzone", "Box", "PolyBox"],
-		"body": ["local ${1:Name}= BoxZone:Create(${2:Vector3}, ${3:W}, ${4:H}, {", "    name=${5:name},", "    --debugPoly=false,", "})", "${1:Name}:onPlayerInOut(function(isPointInside, point)", "end)"],
+		"body": ["local ${1:Name}= BoxZone:Create(${2:Vector3}, ${3:W}, ${4:H}, {", "    name=${5:name},", "    debugPoly=false,", "})", "${1:Name}:onPlayerInOut(function(isPointInside, point)", "end)"],
 		"description": "CLIENT/ Box Zone, Create a PolyZone Box"
 	},
 	"CLIENT/ Get all vehicles from client": {
@@ -363,5 +363,40 @@
 		"prefix": "KeyMapping",
 		"body": ["RegisterCommand('+${1:CommandName}', function()", "end, false)", "", "RegisterCommand('-${1:CommandName}', function()", "end, false)", "", "RegisterKeyMapping('+${1:CommandName}', '${2:Description}', '${3:type}', '${4:KeyToPress}')"],
 		"description": "CLIENT/RegisterKeyMapping"
+	},
+	"CLIENT/ Create a Circle Zone, ": {
+		"prefix": ["CircleZone", "CZ", "CreateCircle", "PolyCircle", "CPoly"],
+		"body": ["local ${1:variable} = CircleZone:Create(${2:vector3}, ${3:radius}, {", "    name=${4:name},", "    debugPoly=false,", "})", "", "${1:variable}:onPlayerInOut(function(isPointInside, point)", "", "end)"],
+		"description": "CLIENT/ Create a Circle Zone, "
+	},
+	"CLIENT/ Create a Entity Zone, ": {
+		"prefix": ["EntityZone", "PZone"],
+		"body": ["--https://github.com/mkafrin/PolyZone/wiki/EntityZone", "", "local ${1:variable} = EntityZone:Create(${2:entity}, {", "    name=${3:name},", "    debugPoly=false,", "})", "${1:variable}:onEntityDamaged(function(entityDied, attacker, weaponHash, isMelee)", "    -- Do stuff here!", "    -- You could destroy the zone when the entity is destroyed for example:", "  --  if entityDied then entity_zone:destroy() end", "end)"],
+		"description": "CLIENT/ Create a Entity Zone, "
+	},
+	"CLIENT/ Delete a PolyZone": {
+		"prefix": ["PolyDestroy", "Dpoly", "PolyD"],
+		"body": ["${1:zoneName}:destroy()"],
+		"description": "CLIENT/ Delete a PolyZone"
+	},
+	"CLIENT/ Set Player Appearance": {
+		"prefix": ["setPlayerAppearance", "spa", "APSSet"],
+		"body": ["exports[\"fivem-appearance\"]:setPlayerAppearance(--[[/appareance/]])"],
+		"description": "CLIENT/ Set Player Appearance"
+	},
+	"CLIENT/ Set Player Model": {
+		"prefix": ["setPlayerModel", "SPM", "APSModel"],
+		"body": ["exports[\"fivem-appearance\"]:setPlayerModel(--[[mp_m_freemode_01]])"],
+		"description": "CLIENT/ Set Player Model"
+	},
+	"CLIENT/ Set Player Tattoos": {
+		"prefix": ["setPedTattoos", "spt", "APSTattoos"],
+		"body": ["exports[\"fivem-appearance\"]:setPedTattoos(--[[ped,{}]])"],
+		"description": "CLIENT/ Set Player Tattoos"
+	},
+	"CLIENT/ Get Player Components": {
+		"prefix": ["getPedComponents", "APGComp"],
+		"body": ["exports[\"fivem-appearance\"]:getPedComponents(--[[PlayerPedId()]])"],
+		"description": "CLIENT/ Get Player Components"
 	}
 }
