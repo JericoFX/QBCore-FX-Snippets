@@ -1,0 +1,22 @@
+{
+  "name": "qb-core-snippets",
+  "publisher": "JericoFX",
+  "displayName": "QB-Core FX Snippets",
+  "description": "A collection of snippets to work with qb-core",
+  "version": "0.0.1",
+  "repository": "https://github.com/JericoFX/QBCore-Snippets",
+  "engines": {
+    "vscode": "^1.71.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "lua",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}
