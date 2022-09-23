@@ -86,7 +86,7 @@
 	},
 	"CLIENT/Return the closest player and distance": {
 		"prefix": ["GetClosestPlayer", "gcp"],
-		"body": ["--This return the closes PLAYER and the distance", "-- Optional Coords", "", "local ${1:player}, ${2:distance} = QBCore.Functions.GetClosestPlayer(${3:coords})"],
+		"body": ["local ${1:player}, ${2:distance} = QBCore.Functions.GetClosestPlayer()"],
 		"description": "CLIENT/GetClosestPlayer"
 	},
 	"CLIENT/ This return a table with the player source.": {
@@ -95,7 +95,7 @@
 		"description": "CLIENT/GetPlayersFromCoords This return a table with the player source."
 	},
 	"CLIENT/ return closest vehicle and the distance, argument coords is optional": {
-		"prefix": "GetClosestVehicle",
+		"prefix": ["GetClosestVehicle", "gcv"],
 		"body": ["local closeVeh,closeDist = QBCore.Functions.GetClosestVehicle(${1:coords})"],
 		"description": "CLIENT/GetClosestVehicle return closest vehicle and the distance, argument coords is optional"
 	},
@@ -196,17 +196,17 @@
 	},
 	"SERVER/Returns the objects related to buckets, first returned value is the player buckets, second one is entity buckets": {
 		"prefix": "GetBucketObjects",
-		"body": ["local count= QBCore.Functions.GetBucketObjects()", ""],
+		"body": ["local count = QBCore.Functions.GetBucketObjects()", ""],
 		"description": "SERVER/Returns the objects related to buckets, first returned value is the player buckets, second one is entity buckets"
 	},
 	"SERVER/Will set the provided player id / source into the provided bucket id, return true if success or false": {
 		"prefix": "GetBucketObjects",
-		"body": ["local count= QBCore.Functions.SetPlayerBucket(${1:source},${2:buket})", ""],
+		"body": ["local count = QBCore.Functions.SetPlayerBucket(${1:source},${2:buket})", ""],
 		"description": "SERVER/Will set the provided player id / source into the provided bucket id, return true if success or false"
 	},
 	"SERVER/Will set any entity into the provided bucket, for example peds / vehicles / props / etc.": {
 		"prefix": "SetEntityBucket",
-		"body": ["local count= QBCore.Functions.SetEntityBucket(${1:entity},${2:buket})", ""],
+		"body": ["local count = QBCore.Functions.SetEntityBucket(${1:entity},${2:buket})", ""],
 		"description": "SERVER/Will set any entity into the provided bucket, for example peds / vehicles / props / etc."
 	},
 	"SERVER/Will return an array of all the player ids inside the current bucket or false": {
