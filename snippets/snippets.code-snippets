@@ -85,12 +85,12 @@
 		"description": "CLIENT/GetObjects"
 	},
 	"CLIENT/Return the closest player and distance": {
-		"prefix": "GetClosestPlayer",
+		"prefix": ["GetClosestPlayer", "gcp"],
 		"body": ["--This return the closes PLAYER and the distance", "-- Optional Coords", "", "local ${1:player}, ${2:distance} = QBCore.Functions.GetClosestPlayer(${3:coords})"],
 		"description": "CLIENT/GetClosestPlayer"
 	},
 	"CLIENT/ This return a table with the player source.": {
-		"prefix": "GetPlayersFromCoords",
+		"prefix": ["GetPlayersFromCoords", "gpfc"],
 		"body": ["local ${1:ClosestPlayers}= QBCore.Functions.GetPlayersFromCoords(${2:coords},${3:distance})"],
 		"description": "CLIENT/GetPlayersFromCoords This return a table with the player source."
 	},
@@ -130,22 +130,22 @@
 		"description": "CLIENT/SpawnClear return true or false if the coords are cleasr of others vehicles"
 	},
 	"CLIENT/return all the properties of the passed vehicle or return null": {
-		"prefix": "GetVehicleProperties",
+		"prefix": ["GetVehicleProperties", "gvp"],
 		"body": ["local props = QBCore.Functions.GetVehicleProperties(${1:vehicle})"],
 		"description": "CLIENT/GetVehicleProperties return all the properties of the passed vehicle or return null"
 	},
 	"CLIENT/Set all the properties of a vehicle passed": {
-		"prefix": "SetVehicleProperties",
+		"prefix": ["SetVehicleProperties", "svp"],
 		"body": ["QBCore.Functions.SetVehicleProperties(${1:vehicle},${2:props})", "--Here you can use QBCore.Functions.SetVehicleProperties(vehicle,QBCore.Functions.GetVehicleProperties(vehicle))"],
 		"description": "CLIENT/SetVehicleProperties Set all the properties of a vehicle passed"
 	},
 	"CLIENT/SERVER Get the QBCore object and all the functions": {
-		"prefix": "GetCore",
+		"prefix": ["GetCore", "GC", "GetObject"],
 		"body": ["local QBCore = exports[\"qb-core\"]:GetCoreObject()"],
 		"description": "CLIENT/SERVER Get the QBCore object and all the functions"
 	},
 	"SERVER/Get the coords of the entity passed, return a vector4(x,y,z,w) w is heading": {
-		"prefix": "GetCore",
+		"prefix": ["GetCoords", "SGC"],
 		"body": ["local Coords = QBCore.Functions.GetCoords(${1:entity})"],
 		"description": "SERVER/Get the coords of the entity passed, return a vector4(x,y,z,w) w is heading"
 	},
