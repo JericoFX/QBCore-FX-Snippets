@@ -9,6 +9,11 @@
 		"body": ["-- Return the vector 4 and with x,y,z and w", "local ${1:variable} = QBCore.Functions.GetCoords(${2:entity})"],
 		"description": "CLIENT/Get the coordinates from an entity, returns a vector3"
 	},
+	"CLIENT/Add a new option in qb-radialmenu": {
+		"prefix": ["AddRadial", "CreateRadialOption"],
+		"body": ["exports[\"qb-radialmenu\"]:AddOption({--[[table here]]--})"],
+		"description": "Add a new option in qb-radialmenu"
+	},
 	"CLIENT/Floating text on the screen": {
 		"prefix": "DrawText",
 		"body": ["QBCore.Functions.DrawText(${1:x}, ${2:y}, ${3:width}, ${4:height}, ${5:scale}, ${6:r}, ${7:g}, ${8:b}, ${9:alpha}, ${10:text})"],
