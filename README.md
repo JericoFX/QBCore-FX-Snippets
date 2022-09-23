@@ -2,6 +2,12 @@
 
 This extension has some useful snippets to use with vscode and qbcore, from simples function to complex solutions like polyzone creator, qb-menu, KeyMapping and more.
 
+## Install
+
+https://marketplace.visualstudio.com/items?itemName=JericoFX.qb-core-snippets
+
+or by VSCode extension browser QB-Core FX Snippets
+
 ## Features
 
 As above described, you can find some useful commands, like
