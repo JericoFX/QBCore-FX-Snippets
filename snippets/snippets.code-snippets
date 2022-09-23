@@ -11,7 +11,7 @@
 	},
 	"CLIENT/Add a new option in qb-radialmenu": {
 		"prefix": ["AddRadial", "CreateRadialOption"],
-		"body": ["exports[\"qb-radialmenu\"]:AddOption({--[[table here]]--})"],
+		"body": ["exports[\"qb-radialmenu\"]:AddOption({--[[table here]]})"],
 		"description": "Add a new option in qb-radialmenu"
 	},
 	"CLIENT/Floating text on the screen": {
