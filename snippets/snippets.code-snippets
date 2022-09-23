@@ -370,12 +370,12 @@
 		"description": "CLIENT/ Create a Circle Zone, "
 	},
 	"CLIENT/ Create a Entity Zone, ": {
-		"prefix": ["EntityZone", "PZone"],
+		"prefix": ["EntityZone", "PEZone"],
 		"body": ["--https://github.com/mkafrin/PolyZone/wiki/EntityZone", "", "local ${1:variable} = EntityZone:Create(${2:entity}, {", "    name=${3:name},", "    debugPoly=false,", "})", "${1:variable}:onEntityDamaged(function(entityDied, attacker, weaponHash, isMelee)", "    -- Do stuff here!", "    -- You could destroy the zone when the entity is destroyed for example:", "  --  if entityDied then entity_zone:destroy() end", "end)"],
 		"description": "CLIENT/ Create a Entity Zone, "
 	},
 	"CLIENT/ Delete a PolyZone": {
-		"prefix": ["PolyDestroy", "Dpoly", "PolyD"],
+		"prefix": ["PolyDestroy", "Dpoly", "Polyd"],
 		"body": ["${1:zoneName}:destroy()"],
 		"description": "CLIENT/ Delete a PolyZone"
 	},
