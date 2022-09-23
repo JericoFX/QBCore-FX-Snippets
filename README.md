@@ -22,4 +22,8 @@ First Release
 
 Initial release of QB-FX
 
+### 1.1.0
+
+Added qb-radialmenu options
+
 **Enjoy!**
