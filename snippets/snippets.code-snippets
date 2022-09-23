@@ -220,7 +220,7 @@
 		"description": "SERVER/Will return an array of all the player ids inside the current bucket or false"
 	},
 	"SERVER/Create a callback and return a value": {
-		"prefix": "CreateCallback",
+		"prefix": ["CreateCallback", "CCallback"],
 		"body": ["QBCore.Functions.CreateCallback(${1:name},function(source,cb,${2:args}) ", "", "end)", ""],
 		"description": "SERVER/Create a callback and return a value"
 	},
@@ -326,7 +326,7 @@
 	},
 	"CLIENT/ Function to create a blip, pass the coordinates and a text": {
 		"prefix": "Blip",
-		"body": ["function addBlip(coords, text)", "local blip = AddBlipForCoord(coords.x, coords.y, coords.z)", "SetBlipSprite(blip, 535)", "SetBlipColour(blip, 1)", "SetBlipDisplay(blip, 4)", "SetBlipAlpha(blip, 250)", "SetBlipScale(blip, 0.8)", "SetBlipAsShortRange(blip, false)", "PulseBlip(blip)", "BeginTextCommandSetBlipName(\"STRING\")", "AddTextComponentString(text)", "EndTextCommandSetBlipName(blip)", "return blip", "end"],
+		"body": ["local function addBlip(coords, text)", "local blip = AddBlipForCoord(coords.x, coords.y, coords.z)", "SetBlipSprite(blip, 535)", "SetBlipColour(blip, 1)", "SetBlipDisplay(blip, 4)", "SetBlipAlpha(blip, 250)", "SetBlipScale(blip, 0.8)", "SetBlipAsShortRange(blip, false)", "PulseBlip(blip)", "BeginTextCommandSetBlipName(\"STRING\")", "AddTextComponentString(text)", "EndTextCommandSetBlipName(blip)", "return blip", "end"],
 		"description": "CLIENT/ Function to create a blip, pass the coordinates and a text"
 	},
 	"CLIENT/ Register an Event": {
@@ -340,12 +340,12 @@
 		"description": "SERVER/ Register an Event on the server"
 	},
 	"CLIENT: OnPlayerLoaded": {
-		"prefix": "OnPlayerLoaded",
+		"prefix": ["OnPlayerLoaded", "OPL", "opl"],
 		"body": ["RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()", "", "end)", ""],
 		"description": "OnPlayerLoaded"
 	},
 	"CLIENT: OnJobUpdate": {
-		"prefix": "OnJobUpdate",
+		"prefix": ["OnJobUpdate", "OJU", "oju"],
 		"body": ["RegisterNetEvent('QBCore:Client:OnJobUpdate', function(job)", "", "end)"],
 		"description": "On Job Update Event"
 	},
@@ -355,7 +355,7 @@
 		"description": "SERVER/CLIENT Register a command"
 	},
 	"CLIENT/Open QB-Menu": {
-		"prefix": "Menu",
+		"prefix": ["Menu", "CreateMenu"],
 		"body": ["local MenuData = {", "        {", "            header = \"${1:HeaderTitle}\",", "            isMenuHeader = true, ", "        },", "        {", "            header = \"Sub Menu Button\",", "            txt = \"This goes to a sub menu\",", "            params = {", "                event = ", "                args = {", "                    number = 1,", "                }", "            }", "        },", "    }", "exports.qb-menu:openMenu(MenuData)"],
 		"description": "CLIENT/Open Create a new Menu"
 	},
