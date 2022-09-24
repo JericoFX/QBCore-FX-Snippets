@@ -53,6 +53,8 @@ CreateCallback or CCallback => will trigger QBCore.Functions.
 CreateCallback() Function.
 
 AddRadial, CreateRadialOption => add radial Option.
+
+
 --[[Fivem Appearance ones]]
 
 getPedComponents, APGComp => getPedComponents(Player ID)
@@ -71,6 +73,31 @@ EntityZone, PZone => Create an Entity Zone --[[https://github.com/mkafrin/PolyZo
 CircleZone,CZ,CreateCircle,PolyCircle,CPoly => Create a Circle Zone
 
 Boxzone,Box,PolyBox => Create a Box Zone
+--[[1.6.0]]
+--[[ps-zones https://github.com/Project-Sloth/ps-zones]]
+
+PSPoly, PSPzone => create a ps-polyzone (name must be unique!)
+PSbox => create a ps-boxzone (name must be unique!)
+PSCircle => create a ps-circlezone (name must be unique!)
+PSEntity => create a ps-entityzone (name must be unique!)
+PSDestroy => destroy a zone, need to pass the name of the zone
+PShandler, PSEvent => handler of ps-zones
+
+--[[QB INVENTORY]]
+useitem,Iuse => UseItem event (Server)
+
+hasitem,Ihas => HasItem (Client and Server)
+
+GetUsableItem,IGusable => check if is a player can use X item (server)
+
+AddItem,Iadd => Add item
+
+RemoveItem,Iremove => remove item
+
+GetItemByName,IGname=> get Item by name
+
+GetItemsByName => get ITEMS by name
+
 
 ```
 
@@ -93,5 +120,9 @@ Added MYSQL commands just put MYSQL and all the commands will appear with a comm
 ### 1.5.0
 
 Added missing PolyZones snippets and some fivem-appearance ones.
+
+### 1.6.0
+
+Fixed qb-inventory exports and added Project Sloth snippets. ps-zones --[[https://github.com/Project-Sloth/ps-zones]]
 
 **Enjoy!**

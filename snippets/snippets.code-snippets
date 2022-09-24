@@ -398,5 +398,70 @@
 		"prefix": ["getPedComponents", "APGComp"],
 		"body": ["exports[\"fivem-appearance\"]:getPedComponents(--[[PlayerPedId()]])"],
 		"description": "CLIENT/ Get Player Components"
+	},
+	"SERVER/ Use Item": {
+		"prefix": ["useitem", "Iuse"],
+		"body": ["exports['qb-inventory']:UseItem(--[[source, item]])"],
+		"description": "SERVER/ Use Item"
+	},
+	"SERVER/CLIENT Check if the player has item or Items": {
+		"prefix": ["hasitem", "Ihas"],
+		"body": ["exports['qb-inventory']:HasItem(--[[source, items, amount]])"],
+		"description": "SERVER/ Check if the player has an item"
+	},
+	"SERVER/ Check if the player can use X item": {
+		"prefix": ["GetUsableItem", "IGusable"],
+		"body": ["exports['qb-inventory']:GetUsableItem(--[[itemName]])"],
+		"description": "SERVER/ Check if the player can use X item"
+	},
+	"SERVER/ Add an item to the inventory of the player": {
+		"prefix": ["AddItem", "Iadd"],
+		"body": ["exports['qb-inventory']:AddItem(--[[source,item,amount?,slot?,info?]])"],
+		"description": "SERVER/ Add an item to the inventory of the player"
+	},
+	"SERVER/ Remove an item from the inventory of the player": {
+		"prefix": ["RemoveItem", "Iremove"],
+		"body": ["exports['qb-inventory']:RemoveItem(--[[source, item, amount?, slot?]])"],
+		"description": "SERVER/ Remove an item from the inventory of the player"
+	},
+	"SERVER/ Get the item from the inventory of the player with the provided source by the name of the item": {
+		"prefix": ["GetItemByName", "IGname"],
+		"body": ["exports['qb-inventory']:GetItemByName(--[[source, item]])"],
+		"description": "SERVER/ Get the item from the inventory of the player with the provided source by the name of the item"
+	},
+	"SERVER/ Get the item from the inventory of the player with the provided source by the name of the item in an array for all slots that the item is in": {
+		"prefix": "GetItemsByName",
+		"body": ["exports['qb-inventory']:GetItemsByName(--[[source, item]])"],
+		"description": "SERVER/ Get the item from the inventory of the player with the provided source by the name of the item in an array for all slots that the item is in"
+	},
+	"CLIENT/ Create a PS:PolyZone": {
+		"prefix": ["PSPoly", "PSPzone"],
+		"body": ["exports[\"ps-zones\"]:CreatePolyZone(\"${name:requeried}\", points --[[,data is optional]])"],
+		"description": "CLIENT/ Create a PS:PolyZone"
+	},
+	"CLIENT/ Create a PS:BoxZone": {
+		"prefix": "PSbox",
+		"body": ["exports[\"ps-zones\"]:CreateBoxZone(\"${name:requeried}\", vector3(${2:x},${3:y},${4:z}), ${5:length}, ${56:width}--[[,data is optional]])"],
+		"description": "CLIENT/ Create a PS:BoxZone"
+	},
+	"CLIENT/ Create a PS:CircleZone": {
+		"prefix": "PSCircle",
+		"body": ["exports[\"ps-zones\"]:CreateCircleZone(\"${name:requeried}\", vector3(${2:x},${3:y},${4:z}), ${5:radius} --[[,data optional]])"],
+		"description": "CLIENT/ Create a PS:CircleZone"
+	},
+	"CLIENT/ Create a PS:Entity Zone": {
+		"prefix": "PSEntity",
+		"body": ["exports[\"ps-zones\"]:CreateEntityZone(\"${name:requeried}\", ${2:entity} --[[,data optional]])"],
+		"description": "CLIENT/ Create a PS:Entity Zone"
+	},
+	"CLIENT/ Destroy a zone, need to pass a name": {
+		"prefix": "PSDestroy",
+		"body": ["exports[\"ps-zones\"]:DestroyZone(\"${name:requeried}\")"],
+		"description": "CLIENT/ Destroy a zone, need to pass a name"
+	},
+	"CLIENT/SERVER Handler for PS Zone": {
+		"prefix": ["PShandler", "PSEvent"],
+		"body": ["RegisterNetEvent(\"ps-zones:enter\", function(ZoneName, ZoneData)", "    -- Code here", "end)", "", "RegisterNetEvent(\"ps-zones:leave\", function(ZoneName, ZoneData)", "    -- Code here", "end)"],
+		"description": "CLIENT/ Handler for PS Zone"
 	}
 }
