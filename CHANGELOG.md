@@ -13,3 +13,9 @@
 - Added some Inventory exports.
 
 - Added Project Sloth ps-zones exports - https://github.com/Project-Sloth/ps-zones
+
+## [1.7.0] - 2023-10-17
+
+- Added some OX_lib functions
+
+- https://overextended.dev/ox_lib

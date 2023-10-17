@@ -514,5 +514,212 @@
 		  "local ${1:variable} = lib.inputDialog(${2:dialogTitle}, {--[[options]]})"
 		],
 		"description": "Ox Input Dialog"
+	  },
+	  "OX Register Menu": {
+		"prefix": "oxrmenu",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Interface/Client/menu#libregistermenu",
+		  "--https://overextended.dev/ox_lib/Modules/Interface/Client/menu#usage-example",
+		  "lib.registerMenu({",
+		  "  id = ${1:id},",
+		  "  title = ${2:title},",
+		  "  position = 'top-right',",
+		  "  options = {}",
+		  "})"
+		],
+		"description": "OX Register Menu"
+	  },
+	  "OX Show Menu": {
+		"prefix": "oxsmenu",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Interface/Client/menu#libshowmenu",
+		  "lib.showMenu(${1:id})"
+		],
+		"description": "OX Show Menu"
+	  },
+	  "CLIENT/ OX Notification": {
+		"prefix": "oxnoti",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Interface/Client/notify#libnotify",
+		  "lib.notify({",
+		  "    title = ${1:title},",
+		  "    description = ${2:description},",
+		  "    type = 'success' --'inform' or 'error' or 'success'or 'warning'",
+		  "})"
+		],
+		"description": "CLIENT/ OX Notification"
+	  },
+	  "SERVER / OX Notification": {
+		"prefix": "oxnoti",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Interface/Client/notify#libnotify",
+		  "TriggerClientEvent('ox_lib:notify', source, {",
+		  "    title = ${1:title},",
+		  "    description = ${2:description},",
+		  "    type = 'success' --'inform' or 'error' or 'success'or 'warning'",
+		  "})"
+		],
+		"description": "SERVER / OX Notification"
+	  },
+	  "CLIENT/ OX Square Progress Bar": {
+		"prefix": "oxsbar",
+		"body": [
+		  "if lib.progressBar({",
+		  "    duration = 2000,",
+		  "    label = ${1:label},",
+		  "    useWhileDead = false,",
+		  "    canCancel = true,",
+		  "    disable = {",
+		  "        --car = true,",
+		  "    },",
+		  "    anim = {",
+		  "       -- dict = 'mp_player_intdrink',",
+		  "       -- clip = 'loop_bottle'",
+		  "    },",
+		  "    prop = {",
+		  "       -- model = `prop_ld_flow_bottle`,",
+		  "       -- pos = vec3(0.03, 0.03, 0.02),",
+		  "       -- rot = vec3(0.0, 0.0, -1.5)",
+		  "    },",
+		  "}) then ",
+		  "    print('Do stuff when complete') ",
+		  "else ",
+		  "    print('Do stuff when cancelled') ",
+		  "end"
+		],
+		"description": "CLIENT/ OX Square Progress Bar"
+	  },
+	  "CLIENT/ OX Circle Progress Bar": {
+		"prefix": "oxcbar",
+		"body": [
+		  "if lib.progressCircle({",
+		  "    duration = 2000,",
+		  "    position = 'bottom',",
+		  "    useWhileDead = false,",
+		  "    canCancel = true,",
+		  "    disable = {",
+		  "       -- car = true,",
+		  "    },",
+		  "    anim = {",
+		  "        --dict = 'mp_player_intdrink',",
+		  "        --clip = 'loop_bottle'",
+		  "    },",
+		  "    prop = {",
+		  "       --model = `prop_ld_flow_bottle`,",
+		  "       --pos = vec3(0.03, 0.03, 0.02),",
+		  "       --rot = vec3(0.0, 0.0, -1.5)",
+		  "    },",
+		  "}) then ",
+		  "    print('Do stuff when complete') ",
+		  "else ",
+		  "    print('Do stuff when cancelled') ",
+		  "end"
+		],
+		"description": "CLIENT/ OX Circle Progress Bar"
+	  },
+	  "CLIENT/ OX Show TextUI": {
+		"prefix": "oxsui",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Interface/Client/textui#libshowtextui",
+		  "lib.showTextUI(${1:text})"
+		],
+		"description": "CLIENT/ OX Show TextUI"
+	  },
+	  "CLIENT/ OX Hide TextUI": {
+		"prefix": "oxhui",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Interface/Client/textui#libshowtextui",
+		  "lib.hideTextUI()"
+		],
+		"description": "CLIENT/ OX Hide TextUI"
+	  },
+	  "SERVER / OX Add command": {
+		"prefix": "oxacomm",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/AddCommand/Server",
+		  "lib.addCommand(${1:commandName}, {",
+		  "    help = ${2:help},",
+		  "    params = {",
+		  "        --{",
+		  "           -- name = 'target',",
+		  "           -- type = 'playerId',",
+		  "          --  help = 'Target player\\'s server id',",
+		  "        --},",
+		  "    },",
+		  "    restricted = 'group.admin'",
+		  "}, function(source, args, raw)",
+		  "",
+		  "end)"
+		],
+		"description": "SERVER / OX Add command"
+	  },
+	  "CLIENT / OX Add Key bind": {
+		"prefix": "oxakey",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/AddKeybind/Client",
+		  "local ${1:variable} = lib.addKeybind({",
+		  "    name = ${2:name},",
+		  "    description = ${3:description},",
+		  "    defaultKey = ${4:key},",
+		  "    onPressed = function(self)",
+		  "       -- print(('pressed %s (%s)'):format(self.currentKey, self.name))",
+		  "    end,",
+		  "    onReleased = function(self)",
+		  "       -- print(('released %s (%s)'):format(self.currentKey, self.name))",
+		  "    end",
+		  "})",
+		  "--https://overextended.dev/ox_lib/Modules/AddKeybind/Client#enable--disable-keybinds",
+		  "--${1:variable}:disable(true) -- disables the keybind",
+		  "--${1:variable}:disable(false) -- enables the keybind"
+		],
+		"description": "CLIENT / OX Add Key bind"
+	  },
+	  "CLIENT/ OX On Cache": {
+		"prefix": "oxcache",
+		"body": [
+		  "--${1:key} =  ped or vehicle or seat or weapon",
+		  "lib.onCache(${1:key}, function(value)",
+		  "end)"
+		],
+		"description": "CLIENT/ OX On Cache"
+	  },
+	  "CLIENT/ OX Callback": {
+		"prefix": "oxcc",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Callback/Lua/Client#trigger-server-callback",
+		  "lib.callback(${1:event}, ${false:default}, function(ret)",
+		  "  ",
+		  "end)"
+		],
+		"description": "CLIENT/ OX Callback"
+	  },
+	  "CLIENT/ OX Callback Await": {
+		"prefix": "oxcca",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Callback/Lua/Client#libcallbackawait",
+		  "lib.callback.await(${1:name}, ${2:false:default}, ...)",
+		  ""
+		],
+		"description": "CLIENT/ OX Callback Await"
+	  },
+	  "SERVER/ OX Callback Register": {
+		"prefix": "oxscr",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Callback/Lua/Client#libcallbackawait",
+		  "lib.callback.register(${1:event}, function(source,...)",
+		  "--",
+		  "end)",
+		  ""
+		],
+		"description": "SERVER/ OX Callback Register"
+	  },
+	  "SERVER/ OX Cron": {
+		"prefix": "oxscron",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Cron/Server#cron-expression",
+		  "lib.cron.new(expression, job, options)",
+		  ""
+		],
+		"description": "SERVER/ OX Cron"
 	  }
 }
