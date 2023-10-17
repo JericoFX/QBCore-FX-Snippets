@@ -463,5 +463,56 @@
 		"prefix": ["PShandler", "PSEvent"],
 		"body": ["RegisterNetEvent(\"ps-zones:enter\", function(ZoneName, ZoneData)", "    -- Code here", "end)", "", "RegisterNetEvent(\"ps-zones:leave\", function(ZoneName, ZoneData)", "    -- Code here", "end)"],
 		"description": "CLIENT/ Handler for PS Zone"
-	}
+	},
+	"Create an alert dialog CLIENT": {
+		"prefix": "oxalert",
+		"body": [
+		  "--@param header string",
+		  "--@param content string",
+		  "--@param centered boolean",
+		  "--@param cancel boolean",
+		  "--https://overextended.dev/ox_lib/Modules/Interface/Client/alert",
+		  "local ${1:variable} = lib.alertDialog({",
+		  "    header = ${2:header},",
+		  "    content = ${3:content},",
+		  "    centered = ${4:center} ,",
+		  "    cancel = ${5:center} ,",
+		  "})"
+		],
+		"description": "Create an alert dialog"
+	  },
+	  "Ox Register Context CLIENT": {
+		"prefix": "oxrcon",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Interface/Client/context#libregistercontext",
+		  "lib.registerContext({",
+		  "  id = ${1:id},",
+		  "  title = ${2:title},",
+		  "  canClose = ${3:canClose},",
+		  "  options = {}",
+		  "})",
+		  "lib.showContext(${1:id})"
+		],
+		"description": "Ox Register and Show a Context menu"
+	  },
+	  "Ox Show Context": {
+		"prefix": "oxscon",
+		"body": [
+		"--https://overextended.dev/ox_lib/Modules/Interface/Client/context#libshowcontext",
+		"lib.showContext(${1:id})",
+		],
+		"description": "Ox Show Context"
+	  },
+	  "Ox Input Dialog": {
+		"prefix": "oxidiag",
+		"body": [
+		  "--https://overextended.dev/ox_lib/Modules/Interface/Client/input#libinputdialog",
+		  "--@param variable string",
+		  "--@param dialogTitle string",
+		  "--@param options table https://overextended.dev/ox_lib/Modules/Interface/Client/input#field-type-properties",
+		  "--@return table",
+		  "local ${1:variable} = lib.inputDialog(${2:dialogTitle}, {--[[options]]})"
+		],
+		"description": "Ox Input Dialog"
+	  }
 }
