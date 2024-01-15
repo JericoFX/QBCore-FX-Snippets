@@ -251,7 +251,7 @@
 	},
 	"SERVER/Prepare can be used to execute frequently called queries faster and accepts multiple sets of parameters to be used with a single query.": {
 		"prefix": "MySQL.prepare",
-		"body": ["--https://overextended.github.io/docs/oxmysql/Usage/prepare ", "MySQL.prepare(${1:query}, {{${2:args}}}, function(result)", "  ", "end)"],
+		"body": ["--https://overextended.github.io/docs/oxmysql/Usage/prepare ", "MySQL.prepare(${1:query}, {${2:args}}, function(result)", "  ", "end)"],
 		"description": "SERVER/Prepare can be used to execute frequently called queries faster and accepts multiple sets of parameters to be used with a single query."
 	},
 	"SERVER/Prepare can be used to execute frequently called queries faster and accepts multiple sets of parameters to be used with a single query.This is the promise version": {
@@ -261,7 +261,7 @@
 	},
 	"SERVER/Generic function that can be utilised for any query.": {
 		"prefix": "MySQL.query",
-		"body": ["--https://overextended.github.io/docs/oxmysql/Usage/query", "MySQL.query(${1:query}, {{${2:args}}}, function(result)", "", "end)"],
+		"body": ["--https://overextended.github.io/docs/oxmysql/Usage/query", "MySQL.query(${1:query}, {${2:args}}, function(result)", "", "end)"],
 		"description": "SERVER/Generic function that can be utilised for any query."
 	},
 	"SERVER/Generic function that can be utilised for any query. Promise": {
@@ -304,6 +304,23 @@
 		"body": ["--https://overextended.github.io/docs/oxmysql/Usage/update", "MySQL.update(${1:query}, {${2:args}}, function(affectedRows)", "", "end)"],
 		"description": "SERVER/Returns the number of affected rows by the query."
 	},
+"SERVER/rawExecute can be used to execute frequently called queries faster and accepts multiple sets of parameters to be used with a single query.": {
+  "prefix": "mysql.raw.await",
+  "body": [
+    "local ${1:variable}= MySQL.rawExecute.await(${2:query}, {${3:args}})"
+  ],
+  "description": "SERVER/rawExecute can be used to execute frequently called queries faster and accepts multiple sets of parameters to be used with a single query."
+},
+"SERVER/rawExecute can be used to execute frequently called queries faster and accepts multiple sets of parameters to be used with a single query.": {
+  "prefix": "mysql.raw",
+  "body": [
+    "MySQL.rawExecute(${1:query}, {${2:args}}, function(response)",
+    "    print(json.encode(response, { indent = true, sort_keys = true }))",
+    "end)"
+  ],
+  "description": "SERVER/rawExecute can be used to execute frequently called queries faster and accepts multiple sets of parameters to be used with a single query."
+}
+,
 	"SERVER/Returns the number of affected rows by the query.Promise": {
 		"prefix": "MySQL.update.await",
 		"body": ["--https://overextended.github.io/docs/oxmysql/Usage/transaction", "local Promise = MySQL.update.await(${1:query}, {${2:args}})"],
@@ -544,7 +561,8 @@
 		  "lib.notify({",
 		  "    title = ${1:title},",
 		  "    description = ${2:description},",
-		  "    type = 'success' --'inform' or 'error' or 'success'or 'warning'",
+		  "    type = 'success', --'inform' or 'error' or 'success'or 'warning'",
+		  "    duration = 3000"
 		  "})"
 		],
 		"description": "CLIENT/ OX Notification"
@@ -556,7 +574,8 @@
 		  "TriggerClientEvent('ox_lib:notify', source, {",
 		  "    title = ${1:title},",
 		  "    description = ${2:description},",
-		  "    type = 'success' --'inform' or 'error' or 'success'or 'warning'",
+		  "    type = 'success', --'inform' or 'error' or 'success'or 'warning'",
+		  "    duration = 3000"
 		  "})"
 		],
 		"description": "SERVER / OX Notification"
@@ -721,5 +740,179 @@
 		  ""
 		],
 		"description": "SERVER/ OX Cron"
-	  }
+	  },
+"CLIENT/Opens an inventory using the passed data.": {
+  "prefix": "oxopeninv",
+  "body": [
+    "exports.ox_inventory:openInventory(${1:type}, ${2:data})"
+  ],
+  "description": "CLIENT/Opens an inventory using the passed data."
+},
+"CLIENT/If possible opens the nearby player's inventory.": {
+  "prefix": "oxopennearinv",
+  "body": [
+    "exports.ox_inventory:openNearbyInventory()"
+  ],
+  "description": "CLIENT/If possible opens the nearby player's inventory."
+},
+"CLIENT/Closes the player's inventory.": {
+  "prefix": "oxcloseinv",
+  "body": [
+    "exports.ox_inventory:closeInventory()"
+  ],
+  "description": "CLIENT/Closes the player's inventory."
+},
+"CLIENT/Returns a table of all registered items. The format is as defined in data/items.lua.": {
+  "prefix": "oxinvitems",
+  "body": [
+    "exports.ox_inventory:Items()"
+  ],
+  "description": "CLIENT/Returns a table of all registered items. The format is as defined in data/items.lua."
+},
+"CLIENT/Uses the item in the given inventory slot.": {
+  "prefix": "oxinvslot",
+  "body": [
+    "exports.ox_inventory:useSlot(${1:slot})"
+  ],
+  "description": "CLIENT/Uses the item in the given inventory slot."
+},
+"CLIENT/Forces the secondary-inventory key to open the passed inventory. Can be useful to enable inventory access while standing inside a marker.": {
+  "prefix": "oxinvsetstash",
+  "body": [
+    "exports.ox_inventory:setStashTarget(${1:id}, ${2:owner})"
+  ],
+  "description": "CLIENT/Forces the secondary-inventory key to open the passed inventory. Can be useful to enable inventory access while standing inside a marker."
+},
+"CLIENT/Get data for the currently equipped weapon.": {
+  "prefix": "oxinvcurweapon",
+  "body": [
+    "exports.ox_inventory:getCurrentWeapon()"
+  ],
+  "description": "CLIENT/Get data for the currently equipped weapon."
+},
+"CLIENT/Sets a metadata property to display in the tooltip.": {
+  "prefix": "oxinvdmeta",
+  "body": [
+    "exports.ox_inventory:displayMetadata(${1:metadata}, ${2:value})"
+  ],
+  "description": "CLIENT/Sets a metadata property to display in the tooltip."
+},
+"CLIENT/Searches the inventory for an item, or list of items, with the result varying based on the first argument.": {
+  "prefix": "oxinvsearch",
+  "body": [
+    "exports.ox_inventory:Search(${1:search}, ${2:item}, ${3:metadata})",
+    "  -- search: 'slots' or 'count'",
+    "  -- 'slots' returns a table of slots where the item was found at.",
+    "  -- 'count' returns the count of the specified item in player's inventory. If searching for multiple items returns key-value pairs of itemName = count.",
+    "  -- item: table or string",
+    "  -- Can be a single item name or array of item names.",
+    "  -- metadata?: table or string",
+    "  -- If metadata is provided as a string it will search the item's metadata.type property.",
+    ""
+  ],
+  "description": "CLIENT/Searches the inventory for an item, or list of items, with the result varying based on the first argument."
+},
+"CLIENT/Get the total item count for all items in the player's inventory with the given name and metadata.": {
+  "prefix": "oxinvGetItemCount",
+  "body": [
+    "exports.ox_inventory:GetItemCount(${1:itemName}, ${2:metadata}, ${3:strict})"
+  ],
+  "description": "CLIENT/Get the total item count for all items in the player's inventory with the given name and metadata."
+},
+"SERVER/Opens an inventory using the passed data. Forces a player to open an inventory, without usual security checks (groups, coords).": {
+  "prefix": "oxforceOpenInventory",
+  "body": [
+    "--https://overextended.dev/ox_inventory/Functions/Server#forceopeninventory",
+    "exports.ox_inventory:forceOpenInventory(${1:playerId}, ${2:invType}, ${3:data})"
+  ],
+  "description": "SERVER/Opens an inventory using the passed data. Forces a player to open an inventory, without usual security checks (groups, coords)."
+},
+"SERVER/Adds an item into the specified inventory.": {
+  "prefix": "oxaddItem",
+  "body": [
+    "--https://overextended.dev/ox_inventory/Functions/Server#additem",
+    "exports.ox_inventory:AddItem(${1:inv}, ${2:item}, ${3:count}, ${4:metadata}, ${5:slot}, ${6:cb})"
+  ],
+  "description": "SERVER/Adds an item into the specified inventory."
+},
+"SERVER/Removes the specified item from the specified inventory.": {
+  "prefix": "oxremoveItem",
+  "body": [
+    "--https://overextended.dev/ox_inventory/Functions/Server#RemoveItem",
+    "exports.ox_inventory:RemoveItem(${1:inv}, ${2:item}, ${3:count}, ${4:metadata}, ${5:slot})"
+  ],
+  "description": "SERVER/Removes the specified item from the specified inventory."
+},
+"SERVER/Returns generic item data from the specified inventory, with the total count.": {
+  "prefix": "oxgetitem",
+  "body": [
+    "--https://overextended.dev/ox_inventory/Functions/Server#getitem",
+    "exports.ox_inventory:GetItem(${1:inv}, ${2:item}, ${3:metadata}, ${4:returnsCount})"
+  ],
+  "description": "SERVER/Returns generic item data from the specified inventory, with the total count."
+},
+"SERVER/Returns true or false depending if the inventory can carry the specified item.": {
+  "prefix": "oxcancarryitem",
+  "body": [
+    "--https://overextended.dev/ox_inventory/Functions/Server#cancarryitem",
+    "exports.ox_inventory:CanCarryItem(${1:inv}, ${2:item}, ${3:count}, ${4:metadata})"
+  ],
+  "description": "SERVER/Returns true or false depending if the inventory can carry the specified item."
+},
+"SERVER/Returns the amount a player can hold based on available weight.": {
+  "prefix": "oxcancarryamount",
+  "body": [
+    "--https://overextended.dev/ox_inventory/Functions/Server#cancarryamount",
+    "exports.ox_inventory:CanCarryAmount(${1:inv}, ${2:item})"
+  ],
+  "description": "SERVER/Returns the amount a player can hold based on available weight."
+},
+"SERVER/Get the total item count for all items in an inventory with the given name and metadata.": {
+  "prefix": "oxgetitemcount",
+  "body": [
+    "--https://overextended.dev/ox_inventory/Functions/Server#getitemcount",
+    "exports.ox_inventory:GetItemCount(${1:inv}, ${2:itemName}, ${3:metadata}, ${4:strict})"
+  ],
+  "description": "SERVER/Get the total item count for all items in an inventory with the given name and metadata."
+},
+"SERVER/Searches an inventory for a specified item.": {
+  "prefix": "oxsearch",
+  "body": [
+    "--https://overextended.dev/ox_inventory/Functions/Server#search",
+    "exports.ox_inventory:Search(${1:inv}, ${2:search}, ${3:item}, ${4:metadata})"
+  ],
+  "description": "SERVER/Searches an inventory for a specified item."
+},
+"SERVER/Creates a new custom stash.": {
+  "prefix": "oxregisterstash",
+  "body": [
+    "--https://overextended.dev/ox_inventory/Functions/Server#registerstash",
+    "exports.ox_inventory:RegisterStash(${1:id}, ${2:label}, ${3:slots}, ${4:maxWeight}, ${5:owner}, ${6:groups}, ${7:coords})"
+  ],
+  "description": "SERVER/Creates a new custom stash."
+},
+"Client/The response is handled in a separate coroutine.": {
+  "prefix": "oxccallback",
+  "body": [
+    "--https://overextended.dev/ox_lib/Modules/Callback/Lua/Client#libcallback",
+    "lib.callback(${1:name}, ${2:delay}, ${3:cb}, ...)"
+  ],
+  "description": "Client/The response is handled in a separate coroutine."
+},
+"Client/The current coroutine is yielded until a response is received.": {
+  "prefix": "oxccallbackawait",
+  "body": [
+    "--https://overextended.dev/ox_lib/Modules/Callback/Lua/Client#libcallbackawait",
+    "lib.callback.await(${1:name}, ${2:delay}, ...)"
+  ],
+  "description": "Client/The current coroutine is yielded until a response is received."
+},
+"SERVER/Register an event handler for responding to server requests.": {
+  "prefix": "oxcallbackregister",
+  "body": [
+    "--https://overextended.dev/ox_lib/Modules/Callback/Lua/Client#libcallbackregister",
+    "lib.callback.register(${1:name}, ${2:cb})"
+  ],
+  "description": "SERVER/Register an event handler for responding to server requests."
+},
 }
